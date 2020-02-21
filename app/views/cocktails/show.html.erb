@@ -1,0 +1,40 @@
+<h1 class="title"> <%= @cocktail.name %> </h1>
+
+<% if @cocktail.photo.attached?%>
+  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <%= cl_image_tag '', height: 300, width: 400, crop: :fill %>
+  <% end %>
+
+<div class="row m-4">
+  <div class="col-3">
+    <h3>Ingredients</h3>
+    <% if @cocktail.doses.empty? %>
+      <h6>You have no ingredients on your cocktail, love (yet 😉)</h6>
+    <% else %>
+      <ul class="list-unstyled">
+        <% @cocktail.doses.each do |dose| %>
+        <li>
+          <strong><%= dose.ingredient.name %></strong>
+          &mdash; <%= dose.description %>
+          (<%= link_to 'delete', dose_path(dose), method: :delete %>)
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= link_to 'Back', root_path, class: "btn btn-outline-dark" %>
+  </div>
+
+
+<div class="row m-4">
+  <div class="col-12">
+    <h2>Add a new ingredient</h2>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.submit 'Spicy your drink with a new ingredient', class: "btn btn-outline-dark" %>
+    <% end %>
+  </div>
+</div>
+
+

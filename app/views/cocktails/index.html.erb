@@ -1,0 +1,16 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1522700433023-7e4fc1d597fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2800&q=80);">
+  <div class="container">
+    <h1>Happiness begins with a <strong>Cock</strong>(tail)</h1>
+    <p>Check our finest selection for gay gentlemen</p>
+    <a class="btn btn-outline-light" href="https://www.grindr.com/">Become a member</a>
+    <%= link_to "Create new cocktail", new_cocktail_path, class: "btn btn-outline-light" %>
+  </div>
+</div>
+
+<ul>
+  <% @cocktails.each do |cocktail| %>
+    <li><%= cocktail.name %> <%= link_to 'Show', cocktail, class: "btn btn-outline-dark" %> </li> <!--cocktail_path(cocktail)-->
+  <% end %>
+</ul>
+
+
