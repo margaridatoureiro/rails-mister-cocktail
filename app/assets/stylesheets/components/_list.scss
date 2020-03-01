@@ -1,0 +1,66 @@
+.cockail-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  background-image: url(https://images.unsplash.com/photo-1505236732171-72a5b19c4981?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80);
+}
+
+.cocktail-card {
+  width: auto;
+  height: 390px;
+  background-color: white;
+  margin: 40px;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  position: relative;
+}
+
+.card-img-top {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 276.25px;
+  height: 190px;
+  background-size: cover;
+}
+
+.cocktail-name {
+  font-family: 'Noto Serif JP';
+  color: rgb(0, 102, 102)
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0px;
+  margin: 10px 0px;
+  margin-bottom: 20px;
+}
+
+.button {
+  position: absolute;
+  bottom: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.button-cute {
+  background-color: rgb(131, 226, 196);
+  padding: 10px 60px;
+  color: white;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-style: none;
+  margin-right: 5px;
+}
+
+.button-cute:hover {
+  color: white;
+  text-decoration: none;
+}

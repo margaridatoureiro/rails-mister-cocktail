@@ -1,14 +1,16 @@
-<h1 class="title"> <%= @cocktail.name %> </h1>
+<div class="existing-cocktail">
 
-<% if @cocktail.photo.attached?%>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-  <%= cl_image_tag '', height: 300, width: 400, crop: :fill %>
-  <% end %>
+  <div class="cocktail">
+    <h1> <%= @cocktail.name %> 🍹</h1>
+    <% if @cocktail.photo.attached? %>
+        <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= cl_image_tag 'jmqamrcrshvknigw1nv5', height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
 
-<div class="row m-4">
-  <div class="col-3">
-    <h3>Ingredients</h3>
+  <div class="ingredients">
+    <h2>Ingredients</h2>
     <% if @cocktail.doses.empty? %>
       <h6>You have no ingredients on your cocktail, love (yet 😉)</h6>
     <% else %>
@@ -22,18 +24,19 @@
         <% end %>
       </ul>
     <% end %>
-    <%= link_to 'Back', root_path, class: "btn btn-outline-dark" %>
+    <div class="go-back">
+      <%= link_to 'Go back', root_path, class: "button-cute" %>
+    </div>
   </div>
 
 
-<div class="row m-4">
-  <div class="col-12">
-    <h2>Add a new ingredient</h2>
-    <%= simple_form_for [@cocktail, @dose] do |f| %>
-    <%= f.input :description %>
-    <%= f.association :ingredient %>
-    <%= f.submit 'Spicy your drink with a new ingredient', class: "btn btn-outline-dark" %>
-    <% end %>
+  <div class="new-ingredient">
+      <h2>Add a new ingredient</h2>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.input :description %>
+      <%= f.association :ingredient %>
+      <%= f.submit 'Spicy your drink with a new ingredient', class: "button-cute" %>
+      <% end %>
   </div>
 </div>
 

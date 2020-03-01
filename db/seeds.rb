@@ -11,10 +11,6 @@ list['drinks'].each do |elem|
   Ingredient.create!(name: elem['strIngredient1'])
 end
 
-puts 'Destroying poisonous doses'
-Dose.destroy_all
-Dose.create(description: '6cl', cocktail: Cocktail.first, ingredient: Ingredient.first)
-
 puts 'Destroying poisonous beverages'
 Dose.destroy_all
 10.times do

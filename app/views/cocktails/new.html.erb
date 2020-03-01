@@ -1,10 +1,19 @@
- <div class="col-6">
-    <h2>Create new cocktail</h2>
-    <%= simple_form_for @cocktail do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit 'Introduce your magic potion to the world', class: "btn btn-outline-dark" %>
-    <% end %>
-    <%= link_to 'Back', root_path %>
+ <div>
+    <div class="container-2">
+      <h2>Create New Cocktail🍹</h2>
+    </div>
+    <div class="container-3">
+      <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
+        <div class="submit">
+          <%= f.submit 'Introduce your magic potion to the world', class: "button-cute" %>
+        </div>
+        <% end %>
+        <div class="back">
+          <%= link_to 'Go back', root_path, class: "button-cute"%>
+        </div>
+    </div>
   </div>
+
 

@@ -7,10 +7,24 @@
   </div>
 </div>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li><%= cocktail.name %> <%= link_to 'Show', cocktail, class: "btn btn-outline-dark" %> </li> <!--cocktail_path(cocktail)-->
-  <% end %>
-</ul>
+<nav class="my-navbar">
+  <span class="navbar-brand"></span>
+</nav>
 
+<div class="cockail-list">
+    <% @cocktails.each do |cocktail| %>
+    <div class="cocktail-card">
+      <img src="https://www.theflavorbender.com/wp-content/uploads/2017/07/Magical-Color-Changing-Cocktails-The-Flavor-Bender-Featured-Image-SQ-5-500x375.jpg" alt="" class="card-img-top">
+      <div class="card-body">
+        <div class="cocktail-name">
+        <%= cocktail.name %>
+        </div>
+        <div class="button">
+        <%= link_to 'Show', cocktail, class: "button-cute"%>
+        <%= cl_image_tag cocktail.photo.key, width: 42, height: 42, crop: :fill if cocktail.photo.attached? %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>
 
