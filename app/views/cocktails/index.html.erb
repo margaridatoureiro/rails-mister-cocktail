@@ -20,8 +20,9 @@
         <%= cocktail.name %>
         </div>
         <div class="button">
-        <%= link_to 'Show', cocktail, class: "button-cute"%>
-        <%= cl_image_tag cocktail.photo.key, width: 42, height: 42, crop: :fill if cocktail.photo.attached? %>
+        <%= link_to 'Show', cocktail_path(cocktail), class: "button-sweet"%>
+        <%= link_to 'Delete', cocktail_path(cocktail), method: :delete, class: "button-sweet"%>
+        <%#= cl_image_tag cocktail.photo.key, width: 42, height: 42, crop: :fill if cocktail.photo.attached? %>
         </div>
       </div>
     </div>

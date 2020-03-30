@@ -1,7 +1,7 @@
 .cockail-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
   background-image: url(https://images.unsplash.com/photo-1505236732171-72a5b19c4981?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80);
 }
 
@@ -14,6 +14,7 @@
   border-radius: 4px;
   text-align: center;
   position: relative;
+  box-shadow: 0px 2px 2px rgb(0, 102, 102);
 }
 
 .card-img-top {
@@ -26,7 +27,9 @@
 }
 
 .cocktail-name {
-  font-family: 'Noto Serif JP';
+  font-family: 'Raleway';
+  font-size: 22px;
+  font-weight: bold;
   color: rgb(0, 102, 102)
 }
 
@@ -51,16 +54,35 @@
 
 .button-cute {
   background-color: rgb(131, 226, 196);
-  padding: 10px 60px;
+  padding: 10px 30px;
+  width: 100%;
   color: white;
   font-size: 18px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-style: none;
+}
+
+.button-cute:hover {
+  color: white;
+  text-decoration: none;
+}
+
+
+.button-sweet {
+  // background-color: rgb(131, 226, 196);
+  background-color: rgba(244, 35, 35, 0.74);
+  padding: 10px 20px;
+  color: white;
+  width: 100%;
+  font-size: 16px;
   border-radius: 4px;
   transition: all 0.3s ease;
   font-style: none;
   margin-right: 5px;
 }
 
-.button-cute:hover {
+.button-sweet:hover {
   color: white;
   text-decoration: none;
 }

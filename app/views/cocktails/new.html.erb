@@ -1,8 +1,6 @@
- <div>
-    <div class="container-2">
+ <div class="mt-4">
+    <div class="container-3 mt-4">
       <h2>Create New Cocktail🍹</h2>
-    </div>
-    <div class="container-3">
       <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name %>
       <%= f.input :photo, as: :file %>
@@ -11,7 +9,7 @@
         </div>
         <% end %>
         <div class="back">
-          <%= link_to 'Go back', root_path, class: "button-cute"%>
+          <%= link_to 'Go back', root_path, class: "button-sweet"%>
         </div>
     </div>
   </div>

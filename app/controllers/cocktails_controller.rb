@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# top_level_class_documentation_comment: true
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show]
+  before_action :fetch_cocktail, only: %i[show destroy]
   def index
     @cocktails = Cocktail.all
   end
@@ -15,10 +18,16 @@ class CocktailsController < ApplicationController
   def create
     @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
-      redirect_to @cocktail
+      redirect_to cocktail_path(@cocktail)
+      # or redirect_to @cocktail or redirect_to @cocktail(@cocktail.id)
     else
       render :new
     end
+  end
+
+  def destroy
+    @cocktail.destroy
+    redirect_to cocktails_path
   end
 
   private
@@ -27,7 +36,7 @@ class CocktailsController < ApplicationController
     params.require(:cocktail).permit(:name, :photo)
   end
 
-  def set_cocktail
+  def fetch_cocktail
     @cocktail = Cocktail.find(params[:id])
   end
 end

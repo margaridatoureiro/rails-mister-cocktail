@@ -1,15 +1,15 @@
-<div class="existing-cocktail">
+<div class="existing-cocktail mt-4">
 
-  <div class="cocktail">
-    <h1> <%= @cocktail.name %> 🍹</h1>
+  <div class="cocktail col-4">
+    <h2> <%= @cocktail.name %> 🍹</h2>
     <% if @cocktail.photo.attached? %>
-        <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <%= cl_image_tag 'jmqamrcrshvknigw1nv5', height: 300, width: 400, crop: :fill %>
+      <div id="cocktail-picture" style="background-image: url(<%= url_for(@cocktail.photo) %>)"></div>
+    <% else %>
+      <div id="cocktail-picture" style="background-image: url('https://images.unsplash.com/photo-1560831503-c9217b8e0e43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80')"></div>
     <% end %>
   </div>
 
-  <div class="ingredients">
+  <div class="ingredients col-4 mt-4">
     <h2>Ingredients</h2>
     <% if @cocktail.doses.empty? %>
       <h6>You have no ingredients on your cocktail, love (yet 😉)</h6>
@@ -19,24 +19,24 @@
         <li>
           <strong><%= dose.ingredient.name %></strong>
           &mdash; <%= dose.description %>
-          (<%= link_to 'delete', dose_path(dose), method: :delete %>)
+          (<%= link_to 'Delete', dose_path(dose), method: :delete %>)
         </li>
         <% end %>
       </ul>
     <% end %>
-    <div class="go-back">
-      <%= link_to 'Go back', root_path, class: "button-cute" %>
-    </div>
   </div>
 
 
-  <div class="new-ingredient">
+  <div class="new-ingredient col-4 mt-4">
       <h2>Add a new ingredient</h2>
       <%= simple_form_for [@cocktail, @dose] do |f| %>
       <%= f.input :description %>
       <%= f.association :ingredient %>
       <%= f.submit 'Spicy your drink with a new ingredient', class: "button-cute" %>
       <% end %>
+      <div class="go-back">
+      <%= link_to 'Go back', root_path, class: "button-sweet" %>
+    </div>
   </div>
 </div>
 

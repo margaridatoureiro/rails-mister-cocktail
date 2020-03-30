@@ -14,7 +14,7 @@ end
 puts 'Destroying poisonous beverages'
 Dose.destroy_all
 10.times do
-  Cocktail.create(name: Faker::Hipster.sentence)
+  Cocktail.create(name: Faker::FunnyName.name)
 end
 
 puts 'Fancy booze selection have just been brewed🍹'

@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
+# top_level_class_documentation_comment: true
 Rails.application.routes.draw do
   root to: 'cocktails#index'
-  resources :cocktails, only: [:index, :show, :new, :create] do
-    resources :doses, only: [:new, :create]
+  resources :cocktails, only: %i[index show new create destroy] do
+    resources :doses, only: %i[new create]
   end
   resources :doses, only: [:destroy]
 end
